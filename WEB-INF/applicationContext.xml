@@ -36,12 +36,13 @@
     </jdbc:embedded-database>
    -->
 
-    
+    <context:property-placeholder location="classpath:database.properties"/>
+       
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    <property name="url" value="jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}" />
-    <property name="username" value="${MYSQL_USER}" />
-    <property name="password" value="${MYSQL_PWD}" />
+    <property name="url" value="jdbc:mysql://${db.host}:${db.port}/${db.name}" />
+    <property name="username" value="${db.user}" />
+    <property name="password" value="${db.pwd}" />
     </bean>
 
     <!-- transaction manager, use DataSourceTransactionManager" for JDBC local tx -->
